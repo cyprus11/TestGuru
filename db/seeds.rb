@@ -17,11 +17,11 @@ categories = Category.create([
 
 # test
 tests = Test.create([
-  { title: "Test 1", level: rand(5), category: categories.sample },
-  { title: "Test 2", level: rand(5), category: categories.sample },
-  { title: "Test 3", level: rand(5), category: categories.sample },
-  { title: "Test 4", level: rand(5), category: categories.sample },
-  { title: "Test 5", level: rand(5), category: categories.sample },
+  { title: "Test 1", level: rand(5), category: categories[0], author: users[0] },
+  { title: "Test 2", level: rand(5), category: categories[1], author: users[0] },
+  { title: "Test 3", level: rand(5), category: categories[2], author: users[0] },
+  { title: "Test 4", level: rand(5), category: categories[0], author: users[0] },
+  { title: "Test 5", level: rand(5), category: categories[1], author: users[0] },
 ])
 
 # questions
@@ -41,7 +41,8 @@ end
 
 # add tests to users
 users.each do |user|
+  test_not_repeat = [] + tests
   3.times do
-    user.tests << tests.sample
+    user.tests << test_not_repeat.delete(test_not_repeat.sample)
   end
 end

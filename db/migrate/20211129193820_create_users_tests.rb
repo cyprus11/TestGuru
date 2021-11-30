@@ -6,5 +6,7 @@ class CreateUsersTests < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+
+    add_index :users_tests, [:user_id, :test_id], unique: true
   end
 end
