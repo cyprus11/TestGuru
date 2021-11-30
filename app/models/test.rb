@@ -5,6 +5,6 @@ class Test < ApplicationRecord
   belongs_to :category
 
   def self.sorted_tests(category_name)
-    includes(:category).where(category: {title: category_name}).order(title: :desc)
+    joins(:category).where(category: {title: category_name}).order(title: :desc)
   end
 end
