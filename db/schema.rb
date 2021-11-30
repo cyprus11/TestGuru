@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_200138) do
+ActiveRecord::Schema.define(version: 2021_11_30_210938) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "question_id", null: false
@@ -41,10 +41,9 @@ ActiveRecord::Schema.define(version: 2021_11_30_200138) do
     t.integer "level", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "author_type"
-    t.integer "author_id"
-    t.index ["author_type", "author_id"], name: "index_tests_on_author"
+    t.integer "user_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
+    t.index ["user_id"], name: "index_tests_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -67,6 +66,7 @@ ActiveRecord::Schema.define(version: 2021_11_30_200138) do
   add_foreign_key "answers", "questions"
   add_foreign_key "questions", "tests"
   add_foreign_key "tests", "categories"
+  add_foreign_key "tests", "users"
   add_foreign_key "users_tests", "tests"
   add_foreign_key "users_tests", "users"
 end
