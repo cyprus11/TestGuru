@@ -2,6 +2,7 @@ class Test < ApplicationRecord
   has_many :users_tests
   has_many :users, through: :users_tests
   has_many :questions
+  belongs_to :author, foreign_key: :user_id, class_name: 'User'
   belongs_to :category
 
   def self.sorted_tests(category_name)
