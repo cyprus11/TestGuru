@@ -5,9 +5,7 @@ class Question < ApplicationRecord
   validates :body, presence: true, length: { minimum: 20 }
   validate :validate_answers_count
 
-  private
-
-  def validate_answers_count
-    errors.add(:answers_count) if answers.size > 4
+  def answers_count
+    answers.count
   end
 end
