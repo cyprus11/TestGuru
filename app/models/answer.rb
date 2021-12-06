@@ -9,6 +9,7 @@ class Answer < ApplicationRecord
   private
 
   def validate_answers_count
-    errors.add(:base, :answers_count, message: 'Too mutch answers for question.') unless (question.answers_count + 1).in?(1..4)
+    return true if question.answers_count < 4
+    errors.add(:base, :answers_count, message: 'Too mutch answers for question.')
   end
 end
