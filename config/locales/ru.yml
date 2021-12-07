@@ -1,2 +1,6 @@
 ru:
   hello: Привет, мир!
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'Возникли ошибки: %{errors}'
