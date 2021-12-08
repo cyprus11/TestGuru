@@ -1,0 +1,8 @@
+<h1>Create question</h1>
+
+<form action="/tests/1/questions" method="POST" id="create_question_form">
+    <input type="hidden" name="authenticity_token" id="authenticity_token" value="<%= form_authenticity_token %>" />
+    <label for="question_body">Вопрос:</label>
+    <input type="text" id="question_body" name="question[body]" placeholder="введите вопрос...">
+    <button type="submit">Создать вопрос</button>
+</form>
