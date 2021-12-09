@@ -16,10 +16,8 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.new(question_params)
-    question.test = @test
+    question = @test.questions.new(question_params)
 
-    byebug
     if question.save
       render inline: "<h1>Question created.</h1>"
     else
