@@ -1,4 +1,15 @@
+<h1>Test:</h1>
+<%= link_to 'Create question', new_test_question_path(@test) %>
+<h2><%= @test.title %></h2>
 <h1>Questions:</h1>
-<ul>
-  <%= render @questions%>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <td>Текст вопроса</td>
+      <td colspan='3' >Действие над вопросом</td>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @questions%>
+  </tbody>
+</table>

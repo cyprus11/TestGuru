@@ -1,0 +1,5 @@
+<h1>Вопрос:</h1>
+<h2><%= @question.body %></h2>
+<%= link_to 'Редактировать вопрос', edit_question_path(@question) %>
+<%= link_to 'Удалить вопрос', question_path(@question), method: :delete, data: { confirm: 'Вы уверены?' } %>
+<%= link_to "К тесту", test_questions_path(@question.test) %>

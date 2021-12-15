@@ -1,0 +1,14 @@
+<h1><%= @test.present? ? question_header(@test) : question_header(@question.test) %></h1>
+
+<%= form_with model: [@test, @question], local: true do |f| %>
+  <% if @question.errors.any? %>
+    <div>
+    <h2><%= pluralize(@question.errors.count, 'error') %> detected:</h2>
+      <%= render partial: "shared/errors", locals: { resource: @question } %>
+    </div>
+  <% end %>
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+  <%= f.submit %>
+  <%= link_to "Назад", url_for(:back) %>
+<% end %>
