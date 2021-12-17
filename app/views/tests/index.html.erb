@@ -1,0 +1,15 @@
+<% if @tests.present?%>
+<table>
+  <thead>
+    <tr>
+      <td>Заголовок теста</td>
+      <td>Количество вопросов</td>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @tests%>
+  </tbody>
+</table>
+<% else %>
+ <h1>Нет тестов...</h1>
+<% end %>

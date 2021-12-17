@@ -1,36 +1,41 @@
 class QuestionsController < ApplicationController
-  before_action :find_question, only: %i[show destroy]
-  before_action :find_test, only: %i[index create]
+  before_action :find_question, only: %i[show destroy edit update]
+  before_action :find_test, only: %i[create new]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def index
-    @questions = @test.questions
-  end
-
   def show
-    render inline: "<h1>#{@question.body}</h1>"
   end
 
   def new
+    @question = @test.questions.new
+  end
+
+  def edit
+  end
+
+  def update
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render 'edit'
+    end
   end
 
   def create
-    question = @test.questions.new(question_params)
+    @question = @test.questions.new(question_params)
 
-    if question.save
-      render inline: "<h1>Question created.</h1>"
+    if @question.save
+      redirect_to test_path(@test)
     else
-      render inline: "<h1>Oops, the question wasn't created...</h1>"
+      render 'new'
     end
   end
 
   def destroy
-    if @question.destroy
-      render inline: "<h1>Question deleted.</h1>"
-    else
-      render inline: "<h1>Question wasn't deleted.</h1>"
-    end
+    @question.destroy
+
+    redirect_to test_path(@question.test)
   end
 
   private
