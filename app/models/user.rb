@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :users_tests
-  has_many :tests, through: :users_tests
+  has_many :test_passages
+  has_many :tests, through: :test_passages
   has_many :created_tests, foreign_key: :user_id, class_name: 'Test'
 
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
