@@ -1,5 +1,7 @@
 <h1>Passing the <%= @test_passage.test.title %> test.</h1>
 
+<p>Question <%= question_position(@test_passage.current_question, @test_passage.test_questions) %> of <%= @test_passage.test_questions.count %></p>
+
 <b>
   <%= @test_passage.current_question.body %>
 </b>

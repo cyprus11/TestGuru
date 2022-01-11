@@ -1,1 +1,4 @@
 <h1><%= @test_passage.test.title %> passed</h1>
+<p>Percent of right answers: <span style="color:<%= text_color(@test_passage.correct_questions_in_percent) %>"><%= @test_passage.correct_questions_in_percent %>%</span></p>
+
+<%= link_to 'Список тестов', root_path %>
