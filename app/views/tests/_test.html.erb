@@ -1,4 +1,5 @@
 <tr>
   <td><%= link_to test.title, test_path(test) %></td>
   <td><%= questions_count(test) %></td>
+  <td><%= button_to 'Start', start_test_path(test) %></td>
 </tr>
