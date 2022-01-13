@@ -1,4 +1,6 @@
 class TestPassage < ApplicationRecord
+  SUCCESSFUL_EVAULATION = 85
+
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
@@ -18,12 +20,20 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
-  def correct_questions_in_percent
+  def test_questions
+    self.test.questions
+  end
+
+  def result
     self.correct_questions / test.questions.count * 100
   end
 
-  def test_questions
-    self.test.questions
+  def success?
+    result >= SUCCESSFUL_EVAULATION
+  end
+
+  def current_question_position
+    test_questions.index(current_question) + 1
   end
 
   private
