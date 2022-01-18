@@ -11,9 +11,7 @@
   </head>
 
   <body>
-    <% if logged_in? %>
-      <p class='nav user'>Welcome, <b><%= current_user.email %> Guru</b></p>
-    <% end %>
+    <%= render partial: 'layouts/header' %>
     <%= yield %>
     <%= render partial: 'layouts/footer' %>
   </body>
