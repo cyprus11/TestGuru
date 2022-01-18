@@ -3,7 +3,7 @@
   <td><%= questions_count(test) %></td>
   <td>
     <% if logged_in? %>
-      <%= button_to 'Start', start_test_path(test) %>
+      <%= link_to 'Start', start_test_path(test) %>
     <% else %>
       <%= link_to 'Log In', login_path %>
     <% end %>

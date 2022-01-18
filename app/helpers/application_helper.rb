@@ -9,7 +9,7 @@ module ApplicationHelper
 
   def flash_messages
     flash.each do |name, text|
-      concat(content_tag :p, text, class: "flash #{name}")
+      concat(content_tag :p, text, class: "flash #{name}") if text.present?
     end
     nil
   end
