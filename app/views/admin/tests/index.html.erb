@@ -1,3 +1,9 @@
+<h1>Tricky tests</h1>
+
+<p>
+  <%= link_to 'New test', new_admin_test_path %>
+</p>
+
 <% if @tests.present?%>
 <table>
   <thead>
@@ -5,7 +11,7 @@
       <td>Заголовок теста</td>
       <td>Уровень</td>
       <td>Количество вопросов</td>
-      <td>Действия</td>
+      <td colspan='3'>Действия</td>
     </tr>
   </thead>
   <tbody>

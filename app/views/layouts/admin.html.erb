@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TestGuru</title>
+    <title>Admin Panel | TestGuru</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,9 +11,8 @@
   </head>
 
   <body>
-    <%= render partial: 'layouts/header' %>
+    <%= render partial: 'admin/nav' %>
     <%= flash_messages %>
     <%= yield %>
-    <%= render partial: 'layouts/footer' %>
   </body>
 </html>
