@@ -2,7 +2,7 @@
   <%= answer.body %><br>
   <%= link_to 'Просмотреть', admin_answer_path(answer) %> |
   <%= link_to 'Редактировать', edit_admin_answer_path(answer) %> |
-  <%= button_to 'Удалить',
+  <%= link_to 'Удалить',
               admin_answer_path(answer),
               method: :delete,
               data: { confirm: 'Вы уверены?' } %>
