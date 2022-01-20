@@ -4,11 +4,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def after_sign_in_path_for(resource)
-    stored_location_for(resource) ||
-      if resource.is_a?(Admin)
-        admin_tests_path
-      else
-        super
-      end
+    sign_in_path = resource.is_admin? ? admin_tests_path : super
+
+    stored_location_for(resource) || sign_in_path
   end
 end
