@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :created_tests, foreign_key: :user_id, class_name: 'Test'
 
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 
   def user_tests(level)
     tests.where(level: level)
