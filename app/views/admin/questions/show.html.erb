@@ -10,5 +10,5 @@
 </ol>
 
 <%= link_to 'Редактировать вопрос', edit_admin_question_path(@question) %>
-<%= button_to 'Удалить вопрос', admin_question_path(@question), method: :delete, data: { confirm: 'Вы уверены?' } %>
+<%= link_to 'Удалить вопрос', admin_question_path(@question), method: :delete, data: { confirm: 'Вы уверены?' } %>
 <%= link_to 'Назад', admin_test_path(@question.test) %>
