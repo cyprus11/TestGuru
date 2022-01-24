@@ -8,12 +8,6 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_first_question, on: :create
   before_update :before_update_set_next_question
 
-  scope :current_questions, -> (question) { where(current_question: question) }
-
-  def self.is_current_question?(question)
-    current_questions(question).any?
-  end
-
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
       self.correct_questions += 1

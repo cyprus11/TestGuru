@@ -1,7 +1,6 @@
 class Admin::QuestionsController < Admin::BaseController
   before_action :find_question, only: %i[show destroy edit update]
   before_action :find_test, only: %i[create new]
-  before_action :check_if_current_question, only: :destroy
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -55,9 +54,5 @@ class Admin::QuestionsController < Admin::BaseController
 
   def rescue_with_question_not_found
     render inline: '<h1>Question was not found.</h1>'
-  end
-
-  def check_if_current_question
-    return redirect_to admin_test_path(@question.test), alert: 'You can not delete this question.' if TestPassage.is_current_question?(@question)
   end
 end
