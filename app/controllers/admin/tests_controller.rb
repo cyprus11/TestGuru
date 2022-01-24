@@ -1,7 +1,5 @@
 class Admin::TestsController < Admin::BaseController
-  skip_before_action :authenticate_user!, only: :index
   before_action :set_test, only: %i[show edit update destroy start]
-  before_action :set_user, only: :start
 
   def index
     @tests = Test.all
@@ -19,10 +17,10 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def create
-    @test = Test.new(test_params)
+    @test = current_user.created_tests.new(test_params)
 
     if @test.save
-      redirect_to @test
+      redirect_to admin_test_path(@test)
     else
       render :new
     end
@@ -38,18 +36,13 @@ class Admin::TestsController < Admin::BaseController
 
   def destroy
     @test.destroy
-    redirect_to tests_path
-  end
-
-  def start
-    current_user.tests.push(@test)
-    redirect_to current_user.test_passage(@test)
+    redirect_to admin_tests_path
   end
 
   private
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id)
+    params.require(:test).permit(:title, :level, :category_id, :user_id)
   end
 
   def set_test

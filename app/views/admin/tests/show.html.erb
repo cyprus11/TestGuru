@@ -1,7 +1,7 @@
 <h1>Test:</h1>
 <h2><%= @test.title %></h2>
 <h1>Questions:</h1>
-<%= link_to 'Create question', new_test_question_path(@test) %>
+<%= link_to 'Create question', new_admin_test_question_path(@test) %>
 <table>
   <thead>
     <tr>
@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-    <%= render partial: 'questions/question', collection: @questions %>
+    <%= render partial: 'admin/questions/question', collection: @questions %>
   </tbody>
 </table>
 <%= link_to "Edit test", edit_admin_test_path(@test) %>
