@@ -4,7 +4,7 @@
   <td><%= questions_count(test) %></td>
   <td>
     <% if user_signed_in? %>
-      <%= link_to 'Start', start_test_path(test) %>
+      <%= link_to 'Start', start_test_path(test), method: :post %>
     <% else %>
       <%= link_to 'Log In', new_user_session_path %>
     <% end %>

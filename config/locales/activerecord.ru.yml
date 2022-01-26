@@ -1,0 +1,11 @@
+ru:
+  activerecord:
+    models:
+      test: 'Тест'
+    attributes:
+      test:
+        title: 'Название'
+    errors:
+      messages:
+        record_invalid: "возникли ошибки: %{errors}"
+        blank: "не может быть пустым"

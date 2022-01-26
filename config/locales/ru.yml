@@ -1,6 +1,35 @@
 ru:
-  hello: Привет, мир!
-  activerecord:
+  helpers:
+    submit:
+      test:
+        create: 'Создать тест'
+        update: 'Обновить тест'
+    label:
+      test:
+        title: 'Название'
+        level: 'Уровень сложности'
+        category_id: 'Категория'
+  shared:
     errors:
-      messages:
-        record_invalid: 'Возникли ошибки: %{errors}'
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+  tests:
+    index:
+      header: "Доступные тесты"
+  test_passages:
+    result:
+      header:
+        success: "Тест %{title} успешно завершен!"
+        failed: "Тест %{title} провален!"
+  admin:
+    tests:
+      create:
+        success: "Тест успешно создан"
+      index:
+        header: "Доступные тесты"
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест на TestGuru!"
