@@ -68,7 +68,7 @@ ru:
       edit:
         header: "Редактирование теста %{title}"
       test:
-        show: "Просмjтреть"
+        show: "Просмотреть"
         edit: "Редактировать"
         delete: "Удалить"
         delete_confirm: "Вы уверены?"
