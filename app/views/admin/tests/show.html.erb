@@ -1,17 +1,17 @@
-<h1>Test:</h1>
+<h1><%= t('.header') %></h1>
 <h2><%= @test.title %></h2>
-<h1>Questions:</h1>
-<%= link_to 'Create question', new_admin_test_question_path(@test) %>
+<h1><%= t('.questions_header') %></h1>
+<%= link_to t('.create_question'), new_admin_test_question_path(@test) %>
 <table>
   <thead>
     <tr>
-      <td>Текст вопроса</td>
-      <td colspan='3' >Действие над вопросом</td>
+      <td><%= t('.question_body') %></td>
+      <td colspan='3' ><%= t('.question_actions') %></td>
     </tr>
   </thead>
   <tbody>
     <%= render partial: 'admin/questions/question', collection: @questions %>
   </tbody>
 </table>
-<%= link_to "Edit test", edit_admin_test_path(@test) %>
-<%= link_to "Back", admin_tests_path %>
+<%= link_to t('.edit_test'), edit_admin_test_path(@test) %>
+<%= render 'shared/back', path: admin_tests_path %>

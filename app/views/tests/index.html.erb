@@ -1,12 +1,12 @@
-<h1><%= t('tests.index.header') %></h1>
+<h1><%= t('.header') %></h1>
 <% if @tests.present?%>
 <table>
   <thead>
     <tr>
-      <td>Заголовок теста</td>
-      <td>Уровень</td>
-      <td>Количество вопросов</td>
-      <td>Действия</td>
+      <td><%= t('.title') %></td>
+      <td><%= t('.level') %></td>
+      <td><%= t('.questions_count') %></td>
+      <td><%= t('.actions') %></td>
     </tr>
   </thead>
   <tbody>
@@ -14,5 +14,5 @@
   </tbody>
 </table>
 <% else %>
- <h1>Нет тестов...</h1>
+ <h1><%= t('.no_tests') %></h1>
 <% end %>
