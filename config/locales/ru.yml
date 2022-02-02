@@ -44,6 +44,10 @@ ru:
         header: "Прохождение теста %{title}"
         question: "Вопрос %{question} из %{questions}"
         next: "Далее"
+        gist: "Отправить вопрос в gist"
+    gist:
+      success: "Gist успешно сохранен!"
+      failure: "Во время сохранения gist произошла ошибка"
   admin:
     tests:
       create:
