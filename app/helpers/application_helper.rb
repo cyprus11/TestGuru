@@ -9,8 +9,17 @@ module ApplicationHelper
 
   def flash_messages
     flash.each do |name, text|
-      concat(content_tag :p, text, class: "flash #{name}") if text.present?
+      next unless text.present?
+
+      concat(content_tag(:div, text, class: "alert #{bootstrap_class_for(name)} alert-dismissible fade show", role: "alert") do
+        concat content_tag(:button, '', class: "btn-close", data: { :"bs-dismiss" => "alert" }, aria: { label: "Close" })
+        concat text
+      end)
     end
     nil
+  end
+
+  def bootstrap_class_for(flash_type)
+    { success: "alert-success", error: "alert-danger", alert: "alert-warning", notice: "alert-info" }.stringify_keys[flash_type.to_s] || flash_type.to_s
   end
 end

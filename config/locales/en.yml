@@ -18,6 +18,8 @@ en:
         other: "%{count} errors detected"
     back:
       back: "Back"
+    admin_panel_link:
+      title: "Admin panel"
   tests:
     test:
       start: "Start"

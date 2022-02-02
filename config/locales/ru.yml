@@ -20,6 +20,8 @@ ru:
         other: "Обнаружено %{count} ошибки"
     back:
       back: "Назад"
+    admin_panel_link:
+      title: "Панель администратора"
   tests:
     test:
       start: "Начать тест"

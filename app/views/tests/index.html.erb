@@ -1,18 +1,22 @@
-<h1><%= t('.header') %></h1>
-<% if @tests.present?%>
-<table>
-  <thead>
-    <tr>
-      <td><%= t('.title') %></td>
-      <td><%= t('.level') %></td>
-      <td><%= t('.questions_count') %></td>
-      <td><%= t('.actions') %></td>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render @tests%>
-  </tbody>
-</table>
-<% else %>
- <h1><%= t('.no_tests') %></h1>
-<% end %>
+<div class="row justify-content-center">
+  <div class="col col-md-6">
+    <h1><%= t(".header") %></h1>
+    <% if @tests.present? %>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <td><%= t(".title") %></td>
+          <td><%= t(".level") %></td>
+          <td><%= t(".questions_count") %></td>
+          <td><%= t(".actions") %></td>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @tests %>
+      </tbody>
+    </table>
+    <% else %>
+    <h1><%= t(".no_tests") %></h1>
+    <% end %>
+  </div>
+</div>
