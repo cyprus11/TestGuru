@@ -1,20 +1,17 @@
-class OctokitClient < GitHubClient
+class OctokitClient
+
+  ACCESS_TOKEN = Rails.application.credentials.github[:gist_access_token]
 
   def initialize
-    super
+    @http_client = setup_http_client
   end
 
   def create_gist(params)
-    @result = @http_client.create_gist(params)
-    self
+    @http_client.create_gist(params)
   end
 
-  def success?
-    html_url.present?
-  end
-
-  def html_url
-    @result['html_url']
+  def response_status
+    @http_client.last_response.status
   end
 
   private
