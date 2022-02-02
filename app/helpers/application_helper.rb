@@ -13,7 +13,7 @@ module ApplicationHelper
 
       concat(content_tag(:div, text, class: "alert #{bootstrap_class_for(name)} alert-dismissible fade show", role: "alert") do
         concat content_tag(:button, '', class: "btn-close", data: { :"bs-dismiss" => "alert" }, aria: { label: "Close" })
-        concat text
+        concat text.html_safe
       end)
     end
     nil

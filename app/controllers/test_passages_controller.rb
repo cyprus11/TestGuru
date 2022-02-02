@@ -20,9 +20,10 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    result = GistQuestionService.new(@test_passage.current_question).call
+    result = GistQuestionService.new(@test_passage.current_question, client: OctokitClient.new).call
 
-    flash_options = result.success? ? { notice: t('.success') } : { alert: t('.failure') }
+    flash_options = result.success? ? { notice: t('.success', link: result.html_url) } : { alert: t('.failure') }
+    create_gist(question: @test_passage.current_question, gist_url: result.html_url, user: @test_passage.user)
 
     redirect_to @test_passage, flash_options
   end
@@ -31,5 +32,9 @@ class TestPassagesController < ApplicationController
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def create_gist(params)
+    Gist.create(params)
   end
 end
