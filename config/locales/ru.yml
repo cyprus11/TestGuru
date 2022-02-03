@@ -46,7 +46,7 @@ ru:
         next: "Далее"
         gist: "Отправить вопрос в gist"
     gist:
-      success: "Gist успешно сохранен!"
+      success: "Gist успешно сохранен! <a href=\"%{link}\" target=\"_blank\">Ссылка</a>"
       failure: "Во время сохранения gist произошла ошибка"
   admin:
     tests:
@@ -78,6 +78,14 @@ ru:
         edit: "Редактировать"
         delete: "Удалить"
         delete_confirm: "Вы уверены?"
+    gists:
+      index:
+        question: "Вопрос"
+        gist_url: "Ссылка на gist"
+        user: "Пользователь"
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"
+  services:
+    gist_question_service:
+      description: "Вопрос о %{title} из TestGuru"

@@ -44,7 +44,7 @@ en:
       next: "Next"
       gist: "Gist question"
     gist:
-      success: "Gist was successfully created!"
+      success: "Gist was successfully created! <a href=\"%{link}\" target=\"_blank\">Link</a>"
       failure: "An error occurred while saving gist"
   admin:
     tests:
@@ -76,6 +76,14 @@ en:
         edit: "Edit"
         delete: "Delete"
         delete_confirm: "Are you shure?"
+    gists:
+      index:
+        question: "Question"
+        gist_url: "Gist URL"
+        user: "User"
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"
+  services:
+    gist_question_service:
+      description: "A question about %{title} from TestGuru"
