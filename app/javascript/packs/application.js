@@ -5,6 +5,7 @@
 require("@popperjs/core")
 require("../stylesheets/application.scss")
 require("packs/utilities/sorting.js")
+require("packs/utilities/password.js")
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
