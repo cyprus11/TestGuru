@@ -4,6 +4,7 @@
 // that code so it'll be compiled.
 require("@popperjs/core")
 require("../stylesheets/application.scss")
+require("packs/utilities/sorting.js")
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
