@@ -10,6 +10,15 @@ document.addEventListener("turbolinks:load", function(){
 function compareWithPassword() {
   let password = document.getElementById('user_password')
   let password_status = document.getElementById('password_status')
+
+  if (this.value === "") {
+    password_status.classList.add('hide')
+    this.classList.remove('is-valid')
+    this.classList.remove('is-invalid')
+
+    return;
+  }
+
   if ((password.value.length > 0 && this.value.length > 0) && (this.value == password.value)) {
     password_status.classList.remove('invalid-feedback')
     password_status.classList.add('valid-feedback')
@@ -19,7 +28,7 @@ function compareWithPassword() {
     this.classList.remove('is-invalid')
     this.classList.add('is-valid')
 
-  } else if ((password.value.length > 0 && this.value.length > 0) && (this.value != password.value)) {
+  } else {
     password_status.classList.remove('valid-feedback')
     password_status.classList.add('invalid-feedback')
     password_status.innerHTML = "Пароли не совпадают"
@@ -27,10 +36,6 @@ function compareWithPassword() {
 
     this.classList.remove('is-valid')
     this.classList.add('is-invalid')
-  } else if (this.value === "") {
-    password_status.classList.add('hide')
-    this.classList.remove('is-valid')
-    this.classList.remove('is-invalid')
   }
 }
 
