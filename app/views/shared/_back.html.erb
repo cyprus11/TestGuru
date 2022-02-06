@@ -1,1 +1,1 @@
-<%= link_to t('.back'), path %>
+<%= link_to t('.back'), defined?(path) ? path : root_path %>

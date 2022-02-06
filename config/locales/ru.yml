@@ -78,6 +78,8 @@ ru:
         edit: "Редактировать"
         delete: "Удалить"
         delete_confirm: "Вы уверены?"
+      form_inline:
+        submit: "Ok"
     gists:
       index:
         question: "Вопрос"
