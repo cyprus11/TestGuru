@@ -1,0 +1,9 @@
+<div class="row">
+  <% (1..questions_count).each do |i| %>
+    <%= content_tag :div,
+                    '',
+                    class: "progress-step #{'current-step' if current_position == i}",
+                    style: "height: 1em; width: #{100 / questions_count}%",
+                    data: { progress_step: i } %>
+  <% end %>
+</div>
