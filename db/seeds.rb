@@ -28,7 +28,7 @@ tests = Test.create([
 questions = []
 tests.each do |test|
   4.times do |i|
-    questions << test.questions.create(body: "Вопрос #{i}")
+    questions << test.questions.create(body: "Вопрос соответствующий валидациям #{i}")
   end
 end
 
