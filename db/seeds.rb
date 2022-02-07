@@ -6,6 +6,7 @@ users = User.create([
   { nickname: "zane.lind", email: "hailey@cassinbrekke.com" },
   { nickname: "jackeline.dickens", email: "tresa@leschharvey.ca" },
   { nickname: "eleanor_vandervort", email: "lovie.pollich@wolf.name" },
+  { nickname: "testovich", email: "alexx10@mail.ru" },
 ])
 
 # categories
