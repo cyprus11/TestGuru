@@ -46,6 +46,16 @@ en:
     gist:
       success: "Gist was successfully created! <a href=\"%{link}\" target=\"_blank\">Link</a>"
       failure: "An error occurred while saving gist"
+  feedbacks:
+    form:
+      submit: "Send feedback"
+    new:
+      header: "Feedback form"
+    create:
+        notice: "Your feedback was sended"
+  layouts:
+    header:
+      new_feedback: "Feedback form"
   admin:
     tests:
       create:
@@ -83,9 +93,19 @@ en:
         question: "Question"
         gist_url: "Gist URL"
         user: "User"
+    feedbacks:
+      index:
+        header: "Feedback"
+        no_feedback: "No feedbacks"
+        from: "From"
+        title: "Subject"
+        text: "Text"
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"
+  feedbacks_mailer:
+    send_feedback:
+      subject: "Feedback from TestGuru"
   services:
     gist_question_service:
       description: "A question about %{title} from TestGuru"
