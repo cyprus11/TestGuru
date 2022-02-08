@@ -16,12 +16,6 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
 
-  scope :admins, -> () { where(type: 'Admin') }
-
-  def self.admins_email
-    admins.pluck(:email)
-  end
-
   def user_tests(level)
     tests.where(level: level)
   end

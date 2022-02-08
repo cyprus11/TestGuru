@@ -5,6 +5,6 @@ class FeedbacksMailer < ApplicationMailer
     @title = feedback.title
     @text = feedback.text
 
-    mail to: User.admins_email
+    mail to: to: -> { Admin.pluck(:email) }
   end
 end
