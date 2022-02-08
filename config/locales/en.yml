@@ -31,6 +31,8 @@ en:
       questions_count: "Questions count"
       actions: "Actions"
       no_tests: "No tests"
+    start:
+      no_questions: "This test does not have any questions yet, try later"
   test_passages:
     result:
       header:
@@ -46,6 +48,8 @@ en:
     gist:
       success: "Gist was successfully created! <a href=\"%{link}\" target=\"_blank\">Link</a>"
       failure: "An error occurred while saving gist"
+    update:
+      choose_answer: "You have to choose an answer."
   feedbacks:
     form:
       submit: "Send feedback"

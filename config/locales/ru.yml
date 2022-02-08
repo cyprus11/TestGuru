@@ -33,6 +33,8 @@ ru:
       questions_count: "Количество вопросов"
       actions: "Действия"
       no_tests: "Нет тестов"
+    start:
+      no_questions: "У данного теста пока нет вопросов, попробуйте позже"
   test_passages:
     result:
       header:
@@ -48,6 +50,8 @@ ru:
     gist:
       success: "Gist успешно сохранен! <a href=\"%{link}\" target=\"_blank\">Ссылка</a>"
       failure: "Во время сохранения gist произошла ошибка"
+    update:
+      choose_answer: "Необходимо выбрать хотя бы один ответ."
   feedbacks:
     form:
       submit: "Отправить обращение"
