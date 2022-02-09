@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :created_tests, foreign_key: :user_id, class_name: 'Test'
   has_many :gists, dependent: :destroy
+  has_many :feedbacks, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :first_name, presence: true
@@ -26,4 +27,5 @@ class User < ApplicationRecord
   def is_admin?
     self.type == 'Admin'
   end
+
 end

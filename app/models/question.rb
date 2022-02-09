@@ -4,7 +4,7 @@ class Question < ApplicationRecord
   has_many :gists, dependent: :destroy
   belongs_to :test
 
-  validates :body, presence: true, length: { minimum: 20 }
+  validates :body, presence: true, length: { minimum: 10 }
 
   def answers_count
     answers.count

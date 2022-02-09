@@ -5,6 +5,10 @@ ru:
     attributes:
       test:
         title: 'Название'
+        display: 'Отображать тест'
+      feedback:
+        title: 'Тема обращения'
+        text: 'Текст обращения'
     errors:
       messages:
         record_invalid: "возникли ошибки: %{errors}"

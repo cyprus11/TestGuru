@@ -1,5 +1,5 @@
 class Test < ApplicationRecord
-  has_many :test_passages
+  has_many :test_passages, dependent: :destroy
   has_many :users, through: :test_passages
   has_many :questions, dependent: :destroy
   belongs_to :author, foreign_key: :user_id, class_name: 'User'
@@ -9,6 +9,7 @@ class Test < ApplicationRecord
   scope :medium, -> { where(level: (2..4)) }
   scope :hard, -> { where(level: (5..)) }
   scope :categories, -> (category_name) { joins(:category).where(category: {title: category_name}) }
+  scope :displayed, -> () { where(display: true) }
 
   validates :title, presence: true
   validates :level, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }

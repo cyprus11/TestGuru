@@ -5,6 +5,10 @@ en:
     attributes:
       test:
         title: 'Title'
+        display: 'Show test'
+      feedback:
+        title: 'Title'
+        text: 'Feedback text'
     errors:
       messages:
         record_invalid: "some errors: %{errors}"

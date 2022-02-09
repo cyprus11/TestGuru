@@ -33,6 +33,8 @@ ru:
       questions_count: "Количество вопросов"
       actions: "Действия"
       no_tests: "Нет тестов"
+    start:
+      no_questions: "У данного теста пока нет вопросов, попробуйте позже"
   test_passages:
     result:
       header:
@@ -48,6 +50,18 @@ ru:
     gist:
       success: "Gist успешно сохранен! <a href=\"%{link}\" target=\"_blank\">Ссылка</a>"
       failure: "Во время сохранения gist произошла ошибка"
+    update:
+      choose_answer: "Необходимо выбрать хотя бы один ответ."
+  feedbacks:
+    form:
+      submit: "Отправить обращение"
+    new:
+      header: "Форма обратной связи"
+    create:
+        notice: "Ваше обращение направлено"
+  layouts:
+    header:
+      new_feedback: "Форма обратной связи"
   admin:
     tests:
       create:
@@ -80,14 +94,26 @@ ru:
         delete_confirm: "Вы уверены?"
       form_inline:
         submit: "Ok"
+      form:
+        submit: "Ok"
     gists:
       index:
         question: "Вопрос"
         gist_url: "Ссылка на gist"
         user: "Пользователь"
+    feedbacks:
+      index:
+        header: "Обратная связь"
+        no_feedback: "Пока обращения не поступали"
+        from: "От"
+        title: "Тема обращения"
+        text: "Обращение"
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"
+  feedbacks_mailer:
+    send_feedback:
+      subject: "Обращение через форму обратной связи"
   services:
     gist_question_service:
       description: "Вопрос о %{title} из TestGuru"
