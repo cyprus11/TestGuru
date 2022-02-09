@@ -94,6 +94,8 @@ ru:
         delete_confirm: "Вы уверены?"
       form_inline:
         submit: "Ok"
+      form:
+        submit: "Ok"
     gists:
       index:
         question: "Вопрос"

@@ -92,6 +92,8 @@ en:
         delete_confirm: "Are you shure?"
       form_inline:
         submit: "Ok"
+      form:
+        submit: "Ok"
     gists:
       index:
         question: "Question"

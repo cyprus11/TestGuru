@@ -9,7 +9,7 @@ class Test < ApplicationRecord
   scope :medium, -> { where(level: (2..4)) }
   scope :hard, -> { where(level: (5..)) }
   scope :categories, -> (category_name) { joins(:category).where(category: {title: category_name}) }
-  scope :with_questions, -> () { where(id: Question.with_answers.pluck(:test_id).uniq)}
+  scope :displayed, -> () { where(display: true) }
 
   validates :title, presence: true
   validates :level, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }

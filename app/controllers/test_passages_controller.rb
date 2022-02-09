@@ -1,7 +1,6 @@
 class TestPassagesController < ApplicationController
 
   before_action :set_test_passage, only: %i[show result update gist]
-  before_action :check_params, only: :update
 
   def show
   end
@@ -42,10 +41,5 @@ class TestPassagesController < ApplicationController
 
   def create_gist(params)
     current_user.gists.create(params)
-  end
-
-  def check_params
-    return redirect_to(test_passage_path(@test_passage), notice: t('.choose_answer')) unless params[:answer_ids] ||
-                                                                                            !@test_passage.current_question.answers.present?
   end
 end

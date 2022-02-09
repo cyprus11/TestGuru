@@ -5,6 +5,7 @@ en:
     attributes:
       test:
         title: 'Title'
+        display: 'Show test'
       feedback:
         title: 'Title'
         text: 'Feedback text'
