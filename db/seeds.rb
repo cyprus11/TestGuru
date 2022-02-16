@@ -99,3 +99,9 @@ question.answers.create(body: 'Объемом')
 question.answers.create(body: 'Мощностью', correct: true)
 question.answers.create(body: 'Весом')
 question.answers.create(body: 'Силой')
+
+# BADGES
+
+Badge.create(title: 'За прохождение теста с первого раза', from_the_first_time: true)
+Badge.create(title: 'За прохождение всех тестов из категории', all_category: true)
+Badge.create(title: 'За прохождение всех тестов одного уровня', all_levels: true)

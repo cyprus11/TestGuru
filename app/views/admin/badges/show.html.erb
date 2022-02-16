@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-12 col-md-4">
+    <h1><%= t('.badge_image') %></h1>
+    <%= image_tag @badge.image, size: "40x40" %>
+  </div>
+  <div class="col-12 col-md-4">
+    <h1><%= t('.badge_title') %></h1>
+    <%= @badge.title %>
+  </div>
+  <div class="col-12 col-md-4">
+    <h1><%= t('.roles') %></h1>
+    <ul>
+      <% @badge.roles.each do |role| %>
+        <li><%= attribute_name(role) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -13,6 +13,8 @@ class TestPassagesController < ApplicationController
 
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
+      @badges = Badge.find_badge(@test_passage)
+      current_user.add_badges(@badges) if @badges.any?
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show
