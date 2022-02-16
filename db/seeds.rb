@@ -102,6 +102,6 @@ question.answers.create(body: 'Силой')
 
 # BADGES
 
-Badge.create(title: 'За прохождение теста с первого раза', from_the_first_time: true)
-Badge.create(title: 'За прохождение всех тестов из категории', all_category: true)
-Badge.create(title: 'За прохождение всех тестов одного уровня', all_levels: true)
+Badge.create(title: 'За прохождение теста с первого раза', image: 'default_badge', from_the_first_time: true)
+Badge.create(title: 'За прохождение всех тестов из категории', image: 'default_badge', all_category: true)
+Badge.create(title: 'За прохождение всех тестов одного уровня', image: 'default_badge', all_levels: true)
