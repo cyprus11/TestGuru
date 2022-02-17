@@ -19,18 +19,16 @@
   </div>
 
   <div class="mb-3">
-    <%= f.check_box :from_the_first_time, { class: "form-check-input" }, true %>
-    <%= f.label :from_the_first_time, class: "form-check-label" %>
+    <%= f.label :role_name, class: "form-label" %>
+    <div class="input-group">
+      <%= f.text_field :role_name, class: "form-control", id: "imageLink", aria: { describedby: "basic-addon1" } %>
+      <span class="input-group-text" id="basic-addon1" data-bs-toggle="tooltip" data-bs-placement="right" title="<%= available_roles %>">?</span>
+    </div>
   </div>
 
   <div class="mb-3">
-    <%= f.check_box :all_category, { class: "form-check-input" }, true %>
-    <%= f.label :all_category, class: "form-check-label" %>
-  </div>
-
-  <div class="mb-3">
-    <%= f.check_box :all_levels, { class: "form-check-input" }, true %>
-    <%= f.label :all_levels, class: "form-check-label" %>
+    <%= f.label :role_value, class: "form-label" %>
+    <%= f.text_field :role_value, class: "form-control", id: "imageLink" %>
   </div>
 
   <div class="mb-3">

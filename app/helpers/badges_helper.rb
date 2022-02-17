@@ -1,5 +1,5 @@
 module BadgesHelper
-  def attribute_name(attribute)
-    Badge.human_attribute_name(attribute)
+  def available_roles
+    Badge::AVAILABLE_ROLE_LIST.to_a.map { |el| el.join(' - ') }.join(";\n")
   end
 end

@@ -30,8 +30,8 @@ class User < ApplicationRecord
     self.type == 'Admin'
   end
 
-  def add_badges(badges)
-    self.badges << badges
+  def completed_tests_id
+    self.test_passages.select(&:success?).pluck(:test_id)
   end
 
 end
