@@ -10,7 +10,7 @@ class Badge < ApplicationRecord
   has_many :users, through: :user_badges, dependent: :destroy
 
   validates :title, presence: true
-  validates :role_name, inclusion: { in: AVAILABLE_ROLE_LIST.keys }
+  validates :role_name, inclusion: { in: AVAILABLE_ROLE_LIST.keys.map(&:to_s) }
   validates_with BadgeValidator
 
   def image
