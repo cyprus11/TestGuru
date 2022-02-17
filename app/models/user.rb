@@ -29,9 +29,4 @@ class User < ApplicationRecord
   def is_admin?
     self.type == 'Admin'
   end
-
-  def completed_tests_id
-    self.test_passages.select(&:success?).pluck(:test_id)
-  end
-
 end

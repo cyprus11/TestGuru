@@ -6,28 +6,28 @@ class UserBadgesService
   end
 
   def call
-    find_badge
+    return unless @test_passage.success?
+
+    Badge.all.each do |badge|
+      @user.badges << badge if send(:"method_#{badge.role_name}", badge) && badge.role_name.present? && badge.role_value.present?
+    end
   end
 
   private
 
-  def find_badge
-    Badge.all.each do |badge|
-      send(:"method_#{badge.role_name}", badge) if badge.role_name.present? && badge.role_value.present?
-    end
-  end
-
   def method_first_time(badge)
-    @user.badges << badge if @test.title == badge.role_value && @test_passage.success? && TestPassage.where(user: @user, test: @test).size == 1
+     @user.tests.where(title: badge.role_value).size == 1
   end
 
   def method_category_tests(badge)
-    @user.badges << badge unless (Category.find_by(title: badge.role_value).tests.displayed.pluck(:id) - @user.completed_tests_id).any? ||
-                              @user.badges.include?(badge)
+    (Test.categories(badge.role_value).displayed - @user.tests).empty? &&
+    TestPassage.user_passages_tests(@user).where(test: { category_id: badge.role_value }).all?(&:success?) &&
+    !@user.badges.include?(badge)
   end
 
   def method_level_tests(badge)
-    @user.badges << badge unless (Test.where(level: badge.role_value).displayed.pluck(:id) - @user.completed_tests_id).any? ||
-                              @user.badges.include?(badge)
+    (Test.where(level: badge.role_value).displayed - @user.tests.where(level: badge.role_value)).empty? &&
+    TestPassage.user_passages_tests(@user).where(test: { level: badge.role_value }).all?(&:success?) &&
+    !@user.badges.include?(badge)
   end
 end

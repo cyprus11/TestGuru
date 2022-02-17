@@ -8,6 +8,8 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_first_question, on: :create
   before_update :before_update_set_next_question
 
+  scope :user_passages_tests, -> (user) { joins(:test).where(user: user) }
+
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
       self.correct_questions += 1
