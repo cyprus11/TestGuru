@@ -16,18 +16,16 @@ class UserBadgesService
   private
 
   def method_first_time(badge)
-     @user.tests.where(title: badge.role_value).size == 1
+     @user.tests.where(id: @test.id, title: badge.role_value).size == 1
   end
 
   def method_category_tests(badge)
-    (Test.categories(badge.role_value).displayed - @user.tests).empty? &&
-    TestPassage.user_passages_tests(@user).where(test: { category_id: badge.role_value }).all?(&:success?) &&
+    (Test.categories(badge.role_value).displayed.pluck(:id) - @user.test_passages.successfull.pluck(:test_id)).empty? &&
     !@user.badges.include?(badge)
   end
 
   def method_level_tests(badge)
-    (Test.where(level: badge.role_value).displayed - @user.tests.where(level: badge.role_value)).empty? &&
-    TestPassage.user_passages_tests(@user).where(test: { level: badge.role_value }).all?(&:success?) &&
+    (Test.where(level: badge.role_value).displayed.pluck(:id) - @user.test_passages.successfull.pluck(:test_id)).empty? &&
     !@user.badges.include?(badge)
   end
 end
