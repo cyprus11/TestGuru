@@ -60,6 +60,11 @@ en:
   layouts:
     header:
       new_feedback: "Feedback form"
+      badges: "Badges"
+  badges:
+    index:
+      all_badges: "All badges"
+      my_badges: "My badges"
   admin:
     tests:
       create:
@@ -106,6 +111,28 @@ en:
         from: "From"
         title: "Subject"
         text: "Text"
+    badges:
+      index:
+        header: "All badges"
+        new_badge: "Create badge"
+        badge_image: "Badge image"
+        badge_title: "Badge title"
+        actions: "Actions"
+      show:
+        badge_image: "Badge image"
+        badge_title: "Badge title"
+        roles: "Roles"
+      new:
+        header: "Create badge"
+      new:
+        header: "Edit badge"
+      form:
+        submit: "Ok"
+      badge:
+        show: "Show badge"
+        edit: "Edit badge"
+        delete: "Delete badge"
+        confirm: "Are you shure?"
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"

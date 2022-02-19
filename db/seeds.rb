@@ -99,3 +99,9 @@ question.answers.create(body: 'Объемом')
 question.answers.create(body: 'Мощностью', correct: true)
 question.answers.create(body: 'Весом')
 question.answers.create(body: 'Силой')
+
+# BADGES
+
+Badge.create(title: 'За прохождение тестов из категории "Информатика"', image: 'default_badge.png', role_name: "category_tests", role_value: "Информатика")
+Badge.create(title: 'за успешное прохождение теста "Тест на тему “Измерение информации”" с первого раза', image: 'default_badge.png', role_name: "first_time", role_value: 'Тест на тему “Измерение информации”')
+Badge.create(title: 'Значок за прохождение всех тестов 4 уровня', image: 'default_badge.png', role_name: "level_tests", role_value: "4")

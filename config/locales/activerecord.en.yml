@@ -9,7 +9,14 @@ en:
       feedback:
         title: 'Title'
         text: 'Feedback text'
+      badge:
+        title: 'Badge title'
+        image: 'Badge image'
+        from_the_first_time: 'Passed test from the first time'
+        all_category: 'Passed all tests from the category'
+        all_levels: 'Passed all tests of the same difficulty level'
     errors:
       messages:
         record_invalid: "some errors: %{errors}"
         blank: "can't be blank"
+        not_exist: "not exist"

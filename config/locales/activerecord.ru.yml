@@ -9,7 +9,14 @@ ru:
       feedback:
         title: 'Тема обращения'
         text: 'Текст обращения'
+      badge:
+        title: 'Название значка'
+        image: 'Изображение значка'
+        from_the_first_time: 'Прошел тест с первого раза'
+        all_category: 'Прошёл все тесты категории'
+        all_levels: 'Прошел все тесты одного уровня сложности'
     errors:
       messages:
         record_invalid: "возникли ошибки: %{errors}"
         blank: "не может быть пустым"
+        not_exist: "не существует"

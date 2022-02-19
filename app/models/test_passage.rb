@@ -6,7 +6,11 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_first_question, on: :create
+  before_validation :calculate_result, on: :update
   before_update :before_update_set_next_question
+
+  scope :user_passages_tests, -> (user) { joins(:test).where(user: user) }
+  scope :successfull, -> { where('result >= ?', SUCCESSFUL_EVAULATION) }
 
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
@@ -24,12 +28,12 @@ class TestPassage < ApplicationRecord
     self.test.questions
   end
 
-  def result
-    self.correct_questions / test.questions.count * 100
-  end
+  # def result
+  #   self.correct_questions / test.questions.count * 100
+  # end
 
   def success?
-    result >= SUCCESSFUL_EVAULATION
+    self.result >= SUCCESSFUL_EVAULATION
   end
 
   def current_question_position
@@ -61,5 +65,9 @@ class TestPassage < ApplicationRecord
 
   def before_update_set_next_question
     self.current_question = next_question
+  end
+
+  def calculate_result
+    self.result = self.correct_questions / test.questions.count * 100
   end
 end
