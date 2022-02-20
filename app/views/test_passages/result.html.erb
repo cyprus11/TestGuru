@@ -1,4 +1,4 @@
-<h1><%= t( @test_passage.success? ? '.header.success' : '.header.failed', title: @test_passage.test.title) %></h1>
-<p><%= t('.percent') %> <span style="color:<%= @test_passage.success? ? 'green' : 'red' %>"><%= @test_passage.result %>%</span></p>
+<h1><%= t( @test_passage.success? && @test_passage.completed? ? '.header.success' : '.header.failed', title: @test_passage.test.title) %></h1>
+<p><%= t('.percent') %> <span style="color:<%= @test_passage.success? && @test_passage.completed? ? 'green' : 'red' %>"><%= @test_passage.result %>%</span></p>
 
 <%= link_to t('.tests_list'), root_path %>

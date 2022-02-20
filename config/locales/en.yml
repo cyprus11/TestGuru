@@ -50,6 +50,8 @@ en:
       failure: "An error occurred while saving gist"
     update:
       choose_answer: "You have to choose an answer."
+    timer:
+      timer: "Time until the end of the test: "
   feedbacks:
     form:
       submit: "Send feedback"

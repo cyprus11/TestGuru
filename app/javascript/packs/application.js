@@ -9,6 +9,7 @@ require("packs/utilities/password.js")
 require("packs/utilities/form_inline.js")
 require("packs/utilities/progress_bar.js")
 require("packs/utilities/badge_image.js")
+require("packs/utilities/test_timer.js")
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"

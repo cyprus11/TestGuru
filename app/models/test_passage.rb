@@ -6,7 +6,6 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_first_question, on: :create
-  before_validation :calculate_result, on: :update
   before_update :before_update_set_next_question
 
   scope :user_passages_tests, -> (user) { joins(:test).where(user: user) }
@@ -16,6 +15,7 @@ class TestPassage < ApplicationRecord
     if correct_answer?(answer_ids)
       self.correct_questions += 1
     end
+    calculate_result
 
     save!
   end
@@ -28,16 +28,22 @@ class TestPassage < ApplicationRecord
     self.test.questions
   end
 
-  # def result
-  #   self.correct_questions / test.questions.count * 100
-  # end
-
   def success?
     self.result >= SUCCESSFUL_EVAULATION
   end
 
   def current_question_position
     test_questions.index(current_question) + 1
+  end
+
+  def time_for_test
+    return unless test.timer.present?
+
+    timer = test.timer
+    end_time = self.created_at + timer.minutes
+    diff = TimeDifference.between(Time.now, end_time).in_general
+
+    "#{diff[:minutes] < 10 ? '0' + diff[:minutes].to_s : diff[:minutes] }:#{diff[:seconds] < 10 ? '0' + diff[:seconds].to_s : diff[:seconds]}"
   end
 
   private
@@ -68,6 +74,6 @@ class TestPassage < ApplicationRecord
   end
 
   def calculate_result
-    self.result = self.correct_questions / test.questions.count * 100
+    self.result = self.correct_questions.to_f / test.questions.count * 100
   end
 end
