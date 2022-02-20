@@ -6,6 +6,7 @@ en:
       test:
         title: 'Title'
         display: 'Show test'
+        timer: 'Time for test'
       feedback:
         title: 'Title'
         text: 'Feedback text'

@@ -2,6 +2,10 @@
 
 <p><%= t('.question', question: @test_passage.current_question_position, questions: @test_passage.test_questions.count) %></p>
 
+<% if @test_passage.test.timer.present? %>
+  <%= render partial: 'timer' %>
+<% end %>
+
 <%= render partial: 'progress_bar', locals: { current_position: @test_passage.current_question_position, questions_count: @test_passage.test_questions.count } %>
 
 <b>

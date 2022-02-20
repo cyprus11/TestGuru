@@ -17,6 +17,11 @@
   </div>
 
   <div class="mb-3">
+    <%= f.label :timer, class: "form-label" %>
+    <%= f.number_field :timer, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
     <%= f.check_box :display, { class: "form-check-input" }, true %>
     <%= f.label :display, class: "form-check-label" %>
   </div>
