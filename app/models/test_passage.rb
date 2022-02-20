@@ -32,6 +32,10 @@ class TestPassage < ApplicationRecord
     self.result >= SUCCESSFUL_EVAULATION
   end
 
+  def passed?
+    success? && completed?
+  end
+
   def current_question_position
     test_questions.index(current_question) + 1
   end
@@ -41,9 +45,17 @@ class TestPassage < ApplicationRecord
 
     timer = test.timer
     end_time = self.created_at + timer.minutes
-    diff = TimeDifference.between(Time.now, end_time).in_general
+    diff = end_time - Time.now
+    minutes = (diff / 60).to_i
+    seconds = (diff % 60).to_i
 
-    "#{diff[:minutes] < 10 ? '0' + diff[:minutes].to_s : diff[:minutes] }:#{diff[:seconds] < 10 ? '0' + diff[:seconds].to_s : diff[:seconds]}"
+    "#{minutes < 10 ? '0' + minutes.to_s : minutes }:#{seconds < 10 ? '0' + seconds.to_s : seconds}"
+  end
+
+  def expired?
+    return unless test.timer.present?
+
+    (self.created_at + test.timer.minutes) <= Time.now
   end
 
   private

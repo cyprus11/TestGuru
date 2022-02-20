@@ -10,7 +10,8 @@ function runTimer() {
   let timerField = document.getElementById('timerOutput')
 
   if (timerField.textContent === "00:00") {
-    window.location.replace(window.location.href + "/result")
+    let form = document.querySelector('form')
+    form.submit()
     return
   }
 
